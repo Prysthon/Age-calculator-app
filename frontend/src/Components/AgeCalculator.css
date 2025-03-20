@@ -1,82 +1,137 @@
-.age-calculator {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f8f8;
 }
 
+.age-calculator {
+  max-width: 480px;
+  margin: 60px auto;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+/* Grupo de inputs (dia, mês, ano) */
 .input-group {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
+  margin-bottom: 20px;
 }
 
 .input-field {
   flex: 1;
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
+  position: relative;
 }
 
 .input-field label {
-  font-weight: bold;
-  margin-bottom: 5px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 8px;
 }
 
 .input-field input {
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
   transition: border-color 0.2s;
 }
 
 .input-field input:focus,
 .input-field input:hover {
-  border-color: #888;
   outline: none;
+  border-color: #854DFF;
 }
 
+/* Mensagens de erro */
 .error {
-  color: red;
-  font-size: 12px;
-  margin-top: 5px;
+  color: #ff4d4d;
+  font-size: 0.75rem;
+  margin-top: 4px;
 }
 
+/* Botão de envio (seta) */
 .submit-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
+  /* Para quem preferir usar o botão em formato circular com a seta de background */
+  width: 64px;
+  height: 64px;
   border: none;
-  background-color: #007bff;
-  color: white;
-  border-radius: 4px;
-  transition: background-color 0.2s;
+  border-radius: 50%;
+  background-color: #854DFF;
+  background-image: url("assets/images/fcon-arrow.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 16px;
+  align-self: flex-end; /* Se quiser alinhar à direita */
 }
 
-.submit-button:hover,
-.submit-button:focus {
-  background-color: #0056b3;
-  outline: none;
+/* Estado de hover do botão */
+.submit-button:hover {
+  background-color: #6f3fdc;
 }
 
+/* Classe opcional para indicar cálculo em andamento */
+.submit-button.calculating {
+  background-color: #4B2FA7;
+  cursor: wait;
+}
+
+/* Área de resultado */
 .result {
-  margin-top: 30px;
+  margin-top: 40px;
   display: flex;
-  gap: 20px;
-  justify-content: space-around;
-}
-
-.result-item {
+  justify-content: space-between;
+  gap: 16px;
   text-align: center;
 }
 
 .result-item .number {
-  font-size: 48px;
-  font-weight: bold;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #854DFF;
+  line-height: 1;
 }
 
-@media (max-width: 600px) {
+.result-item .label {
+  display: block;
+  font-size: 0.9rem;
+  text-transform: lowercase;
+  color: #999;
+  margin-top: 4px;
+  letter-spacing: 1px;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+  .age-calculator {
+    margin: 20px auto;
+    padding: 20px;
+  }
+
   .input-group {
     flex-direction: column;
+  }
+
+  .submit-button {
+    align-self: flex-start;
+    margin-top: 8px;
+  }
+
+  .result {
+    flex-direction: column;
+    gap: 20px;
   }
 }
