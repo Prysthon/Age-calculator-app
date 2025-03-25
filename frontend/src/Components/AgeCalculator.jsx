@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './AgeCalculator.css';
+import InputsAndButton from './InputsAndButton';
+import Result from './Result';
 
 function AgeCalculator() {
   // Estados para os campos do formulário
@@ -119,57 +121,17 @@ function AgeCalculator() {
 
   return (
     <div className="age-calculator">
-      <form onSubmit={handleSubmit}>
-        <div className="input-group">
-          <div className="input-field">
-            <label>DIA</label>
-            <input 
-              type="number" 
-              placeholder="DD" 
-              value={day} 
-              onChange={(e) => setDay(e.target.value)}
-            />
-            {errors.day && <span className="error">{errors.day}</span>}
-          </div>
-          <div className="input-field">
-            <label>MÊS</label>
-            <input 
-              type="number" 
-              placeholder="MM" 
-              value={month} 
-              onChange={(e) => setMonth(e.target.value)}
-            />
-            {errors.month && <span className="error">{errors.month}</span>}
-          </div>
-          <div className="input-field">
-            <label>ANO</label>
-            <input 
-              type="number" 
-              placeholder="YYYY" 
-              value={year} 
-              onChange={(e) => setYear(e.target.value)}
-            />
-            {errors.year && <span className="error">{errors.year}</span>}
-          </div>
-        </div>
-        <button type="submit" className="submit-button">
-          Calcular
-        </button>
-      </form>
-      <div className="result">
-        <div className="result-item">
-          <span className="number">{result.years}</span>
-          <span className="label">anos</span>
-        </div>
-        <div className="result-item">
-          <span className="number">{result.months}</span>
-          <span className="label">meses</span>
-        </div>
-        <div className="result-item">
-          <span className="number">{result.days}</span>
-          <span className="label">dias</span>
-        </div>
-      </div>
+      <InputsAndButton
+        handleSubmit={handleSubmit}
+        day={day}
+        setDay={setDay}
+        month={month}
+        setMonth={setMonth}
+        year={year}
+        setYear={setYear}
+        errors={errors}
+      />
+      <Result result={result} />
     </div>
   );
 }
