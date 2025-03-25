@@ -63,7 +63,6 @@ html, body {
 
 /* Botão de envio (seta) */
 .submit-button {
-  /* Para quem preferir usar o botão em formato circular com a seta de background */
   width: 64px;
   height: 64px;
   border: none;
@@ -75,7 +74,7 @@ html, body {
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin-top: 16px;
-  align-self: flex-end; /* Se quiser alinhar à direita */
+  align-self: flex-end; 
 }
 
 /* Estado de hover do botão */
@@ -83,7 +82,6 @@ html, body {
   background-color: #6f3fdc;
 }
 
-/* Classe opcional para indicar cálculo em andamento */
 .submit-button.calculating {
   background-color: #4B2FA7;
   cursor: wait;
